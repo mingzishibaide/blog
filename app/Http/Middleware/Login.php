@@ -15,10 +15,12 @@ class Login
      */
     public function handle($request, Closure $next)
     {
-        // if(session()->has('key')){
+        if(array_key_exists('key', $request->all()))
+            session(['key' => $request->all()['key']]);
+        if(session('key')==9898694){
             return $next($request);
-        // }else{
-        //     return redirect()->action('MessageController@login');
-        // }
+        }else{
+            return redirect()->action('BlogController@index');
+        }
     }
 }

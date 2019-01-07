@@ -16,7 +16,7 @@ class MessageController extends Controller
     }
 
     public function login(Request $req){
-        $req->all()['key'];
+        dd($req->all()['key']);
     }
 
     public function addgbook(Request $req){
